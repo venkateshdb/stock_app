@@ -1,0 +1,59 @@
+import React, { useState } from "react";
+import Toast from "../utils/toast";
+
+const RevenueFilterBar = ({ data, setFilteredData, originalData, setOriginalData}) => {
+  const [revenueRange, setRevenueRange] = useState({ start: "", end: "" });
+
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastType, setToastType] = useState("success");
+
+  
+
+  const applyFilter = () => {
+    let filtered = [...originalData];
+
+    if(revenueRange.start > revenueRange.end) {
+      setToastMessage("The 'To' cannot be smaller than 'From'.");
+      setToastType("error");
+      setShowToast(true);
+      return;
+    }
+    console.log(`this ${revenueRange.start} and ${revenueRange.end}`);
+    console.log(`${typeof(revenueRange.start)}`)
+    if (revenueRange.start && revenueRange.end) {
+      filtered = filtered.filter(
+        (item) => parseInt(item.revenue) >= parseInt(revenueRange.start) && parseInt(item.revenue) <= parseInt(revenueRange.end)
+      );
+    }
+
+    setFilteredData(filtered);
+    setOriginalData(originalData);
+  };
+
+  return (
+    <div className="mb-4">
+      <h3 className="text-md font-medium">Select Revenue Range</h3>
+      <input
+        type="number"
+        placeholder="From ($)"
+        className="w-full border p-2 rounded-md shadow-sm mt-2"
+        onChange={(e) => setRevenueRange({ ...revenueRange, start: e.target.value })}
+      />
+      <input
+        type="number"
+        placeholder="To ($)"
+        className="w-full border p-2 rounded-md shadow-sm mt-2"
+        onChange={(e) => setRevenueRange({ ...revenueRange, end: e.target.value })}
+      />
+      <div className="py-5">
+      <button className="w-full bg-indigo-600 text-white py-2 rounded-lg shadow hover:bg-indigo-700 transition" onClick={applyFilter}>
+        Apply Revenue Filter
+      </button>  
+      </div>
+      <Toast message={toastMessage} type={toastType} show={showToast} setShow={setShowToast} />
+  </div>
+  );
+};
+
+export default RevenueFilterBar;
