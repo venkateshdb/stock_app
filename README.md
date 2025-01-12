@@ -22,10 +22,10 @@ A **React-based** financial data filtering application that allows users to **fe
 
 ## 📸 Screenshots
 ### 🖼 Sidebar Filters & Data Table  
-![App Screenshot](../stock_app/public/screenshot_1.png)
+![App Screenshot](/public/screenshot_1.png)
 
 ### 📊 Sorted & Filtered Financial Data  
-![Sorted Table](../stock_app/public/screenshot_2.png)
+![Sorted Table](/public/screenshot_2.png)
 
 ---
 
