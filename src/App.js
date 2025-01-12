@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useFetchData } from "./hooks/useFetchData";
 import DataTable from "./components/DataTable";
-
-import FinancialUI from "./pages/financeUI";
 import FilterSidebar from "./components/filterSidebar";
+
+
+
 
 const App = () => {
   const { data, loading } = useFetchData();

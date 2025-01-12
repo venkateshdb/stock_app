@@ -8,21 +8,10 @@ const DataTable = ({ data, setFilteredData }) => {
   const [sortOrder, setSortOrder] = useState("desc");
 
   const handleSort = (type) => {
-    // console.log(`clicked on ${type}`);
     const order = sortOrder === "desc" ? "asc" : "desc";
     const sorted = sortData(data, type, order);
+
     setSortOrder(order);
-    // const sorted = [...data].sort((a, b) => {
-
-
-    //   if (order === "asc") {
-    //     setSortOrder("asc");
-    //     return new Date(a[type]) - new Date(b[type]);
-    //   } else {
-    //     setSortOrder("desc");
-    //     return new Date(b[type]) - new Date(a[type]);
-    //   }
-    // });
     setFilteredData(sorted);
   };
 

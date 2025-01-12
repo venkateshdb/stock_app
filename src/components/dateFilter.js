@@ -5,7 +5,6 @@ import { sortData } from "../utils/sortData";
 import Toast from "../utils/toast";
 
 const DateFilterBar = ({ data, setFilteredData, originalData, setOriginalData }) => {
-  // const [dateRange, setDateRange] = useState({ start: "", end: "" });
   const [startYear, setStartYear] = useState();
   const [endYear, setEndYear] = useState();
 
@@ -17,9 +16,7 @@ const DateFilterBar = ({ data, setFilteredData, originalData, setOriginalData })
 
   const applyFilter = () => {
     let filtered = [...originalData];
-    
-    console.log(`this ${startYear} and ${endYear}`);
-    console.log(originalData);
+
     if(startYear.getFullYear() > endYear.getFullYear()) {
       setToastMessage("The 'To' cannot be smaller than 'From'.");
       setToastType("error");

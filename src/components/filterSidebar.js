@@ -6,13 +6,13 @@ import RevenueFilterBar from "./revenueFilter";
 import IncomeFilterBar from "./incomeFilter";
 import DateFilterBar from "./dateFilter";
 
-const FilterSidebar = ({data, setFilteredData, originalData, setOriginalData }) => {
+const FilterSidebar = ({ data, setFilteredData, originalData, setOriginalData }) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
 
   return (
     <div>
-      {/* Floating Button */}
+      
       <button
         onClick={() => setIsOpen(true)}
         className="fixed top-4 right-4 bg-indigo-500 text-white px-4 py-2 rounded-full shadow-lg flex items-center space-x-2 hover:bg-indigo-600 transition"
@@ -20,7 +20,6 @@ const FilterSidebar = ({data, setFilteredData, originalData, setOriginalData }) 
         <FaFilter /> <span>Filters</span>
       </button>
 
-      {/* Sidebar Panel */}
       {isOpen && (
         <div className="fixed top-0 right-0 h-full w-80 bg-white shadow-xl p-6 transition-transform transform translate-x-0">
           <div className="flex justify-between items-center mb-4">
@@ -30,14 +29,12 @@ const FilterSidebar = ({data, setFilteredData, originalData, setOriginalData }) 
             </button>
           </div>
 
-          {/* Year Filter */}
+          
           <DateFilterBar data={data} setFilteredData={setFilteredData} originalData={originalData} setOriginalData={setOriginalData} />
 
-          {/* Revenue Filter */}
-          <RevenueFilterBar data={data} setFilteredData={setFilteredData} originalData={originalData} setOriginalData={setOriginalData}/>
+          <RevenueFilterBar data={data} setFilteredData={setFilteredData} originalData={originalData} setOriginalData={setOriginalData} />
 
-          {/* Income Filter */}
-          <IncomeFilterBar data={data} setFilteredData={setFilteredData} originalData={originalData} setOriginalData={setOriginalData}/>
+          <IncomeFilterBar data={data} setFilteredData={setFilteredData} originalData={originalData} setOriginalData={setOriginalData} />
 
         </div>
       )}

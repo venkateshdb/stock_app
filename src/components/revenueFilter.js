@@ -19,8 +19,7 @@ const RevenueFilterBar = ({ data, setFilteredData, originalData, setOriginalData
       setShowToast(true);
       return;
     }
-    console.log(`this ${revenueRange.start} and ${revenueRange.end}`);
-    console.log(`${typeof(revenueRange.start)}`)
+  
     if (revenueRange.start && revenueRange.end) {
       filtered = filtered.filter(
         (item) => parseInt(item.revenue) >= parseInt(revenueRange.start) && parseInt(item.revenue) <= parseInt(revenueRange.end)
