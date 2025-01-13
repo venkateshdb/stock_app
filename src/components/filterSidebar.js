@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { FaFilter, FaTimes } from "react-icons/fa";
-import DatePicker from "react-datepicker";
+import { FaFilter, FaTimes, FaRedo } from "react-icons/fa";
+import Toast from "../utils/toast";
 import "react-datepicker/dist/react-datepicker.css";
 import RevenueFilterBar from "./revenueFilter";
 import IncomeFilterBar from "./incomeFilter";
@@ -9,6 +9,18 @@ import DateFilterBar from "./dateFilter";
 const FilterSidebar = ({ data, setFilteredData, originalData, setOriginalData }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastType, setToastType] = useState("success");
+
+  const resetFilters = () => {
+    
+    setFilteredData(originalData);
+
+    setToastMessage("Filters Reset!");
+    setToastType("success");
+    setShowToast(true);
+  };
 
   return (
     <div>
@@ -36,8 +48,16 @@ const FilterSidebar = ({ data, setFilteredData, originalData, setOriginalData })
 
           <IncomeFilterBar data={data} setFilteredData={setFilteredData} originalData={originalData} setOriginalData={setOriginalData} />
 
+          <button
+              onClick={resetFilters}
+              className="bg-gray-500 text-white py-2 px-6 rounded-lg shadow hover:bg-gray-700 transition flex items-center space-x-2 ml-auto"
+            >
+              <FaRedo /> <span>Reset Filters</span>
+            </button>
         </div>
       )}
+      <Toast message={toastMessage} type={toastType} show={showToast} setShow={setShowToast} />
+
     </div>
   );
 };
