@@ -37,7 +37,7 @@ A **React-based** financial data filtering application that allows users to **fe
 
 ## 🛠 Setup & Installation
 ### **🔧 Prerequisites**
-- **Node.js** (`v16+`)
+- **Node.js**
 - **NPM**
 - **API Key** from [Financial Modeling Prep](https://site.financialmodelingprep.com/developer/docs)
 
