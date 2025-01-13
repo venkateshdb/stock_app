@@ -38,10 +38,32 @@ A **React-based** financial data filtering application that allows users to **fe
 ## 🛠 Setup & Installation
 ### **🔧 Prerequisites**
 - **Node.js** (`v16+`)
-- **NPM or Yarn**
+- **NPM**
 - **API Key** from [Financial Modeling Prep](https://site.financialmodelingprep.com/developer/docs)
+
+### 🔑 API Configuration
+This app fetches financial data from Financial Modeling Prep API.
+
+- Get a free API key from Financial Modeling Prep.
+- Create a .env file in the root of your project.
+- Add your API key to .env:
+ ```sh
+  REACT_APP_API_KEY=your_api_key_here
+  ```
+
 
 ### **📥 Clone the Repository**
 ```sh
 git clone https://github.com/yourusername/financial-data-filter.git
 cd financial-data-filter
+```
+### 📦 Install Dependencies
+```sh
+npm install
+```
+### 🚀 Start Development Server
+```sh
+npm start
+```
+
+  
